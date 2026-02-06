@@ -6,8 +6,8 @@ import { Menu, X, Phone } from "lucide-react"
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Chi Siamo", href: "#chi-siamo" },
-  { label: "Servizi", href: "#servizi" },
-  { label: "Prodotti", href: "#prodotti" },
+  { label: "Concept", href: "#concept" },
+  { label: "Galleria", href: "#galleria" },
   { label: "Contatti", href: "#contatti" },
 ]
 
@@ -33,20 +33,24 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-8 py-4">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2">
+        <a href="#home" className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-sm overflow-hidden bg-primary/10 flex items-center justify-center">
+            <img
+              src="/foto/logo.png"
+              alt="Marpell SRL Logo"
+              className="w-full h-full object-contain"
+              onError={(e) => {
+                e.target.style.display = "none"
+                e.target.parentElement.innerHTML = '<span class="font-serif text-lg font-bold text-primary">M</span>'
+              }}
+            />
+          </div>
           <span
             className={`font-serif text-2xl lg:text-3xl font-bold tracking-tight transition-colors duration-500 ${
               scrolled ? "text-foreground" : "text-hero-foreground"
             }`}
           >
-            Mar.Pel
-          </span>
-          <span
-            className={`text-xs font-sans uppercase tracking-[0.2em] mt-1 transition-colors duration-500 ${
-              scrolled ? "text-muted-foreground" : "text-hero-foreground/70"
-            }`}
-          >
-            SRL
+            Marpell
           </span>
         </a>
 
@@ -67,7 +71,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <a
-          href="tel:+390733961533"
+          href="tel:+39057147567"
           className={`hidden lg:flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-sm border transition-all duration-300 ${
             scrolled
               ? "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
@@ -108,7 +112,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="tel:+390733961533"
+            href="tel:+39057147567"
             className="flex items-center justify-center gap-2 text-sm font-medium px-5 py-3 rounded-sm bg-primary text-primary-foreground mt-2"
           >
             <Phone className="w-4 h-4" />

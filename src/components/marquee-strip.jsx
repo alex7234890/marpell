@@ -1,16 +1,17 @@
 export default function MarqueeStrip() {
   const items = [
-    "IMPORT PELLAMI",
-    "EXPORT PELLAMI",
-    "STOCK PELLI",
-    "PELLAMI PER CALZATURE",
+    "STAMPA DIGITALE SU PELLE",
+    "INCHIOSTRI ECOLOGICI AD ACQUA",
+    "PELLI CRUST",
+    "PELLI LISCE",
+    "PELLI SCAMOSCIATE",
+    "PELLI RETTILI",
+    "CINTURE IN PELLE",
+    "PELLETTERIA",
+    "CALZATURE",
+    "ARREDAMENTO",
     "MADE IN ITALY",
-    "PELLI BOVINE",
-    "PELLI OVINE",
-    "PELLI CAPRINE",
-    "PELLI SUINE",
-    "SEMILAVORATI",
-    "DAL 1990",
+    "STILE ITALIANO",
   ]
 
   const repeated = [...items, ...items]

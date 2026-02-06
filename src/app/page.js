@@ -3,8 +3,8 @@ import Hero from "@/components/hero";
 import MarqueeStrip from "@/components/marquee-strip";
 import About from "@/components/about";
 import Stats from "@/components/stats";
-import Services from "@/components/services";
-import Products from "@/components/products";
+import Concept from "@/components/concept";
+import Gallery from "@/components/gallery";
 import CtaBanner from "@/components/cta-banner";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
@@ -17,8 +17,8 @@ export default function Page() {
       <MarqueeStrip />
       <About />
       <Stats />
-      <Services />
-      <Products />
+      <Concept />
+      <Gallery />
       <CtaBanner />
       <Contact />
       <Footer />

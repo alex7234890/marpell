@@ -37,11 +37,11 @@ export default function CtaBanner() {
         }`}
       >
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-hero-foreground leading-tight text-balance">
-          Pronti a scoprire i nostri pellami?
+          Un{"'"}idea pu&ograve; diventare realt&agrave;
         </h2>
         <p className="mt-6 text-hero-foreground/70 text-base lg:text-lg leading-relaxed max-w-xl mx-auto">
-          Richiedeteci informazioni, opuscoli informativi o campionature.
-          Metteremo la nostra esperienza al vostro servizio.
+          Richiedeteci campionature, prototipi o mood board personalizzati.
+          Metteremo la nostra creativit&agrave; e competenza al vostro servizio.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
@@ -51,10 +51,10 @@ export default function CtaBanner() {
             Richiedi Informazioni
           </a>
           <a
-            href="tel:+390733961533"
+            href="tel:+39057147567"
             className="px-8 py-4 border border-hero-foreground/30 text-hero-foreground font-sans text-sm uppercase tracking-[0.15em] font-medium rounded-sm hover:bg-hero-foreground/10 transition-all duration-300"
           >
-            +39 0733 961533
+            +39 0571 47567
           </a>
         </div>
       </div>

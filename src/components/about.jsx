@@ -46,32 +46,41 @@ export default function About() {
             }`}
           >
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight text-balance">
-              Oltre 30 anni di passione per i pellami
+              Qualit&agrave;, innovazione e sapere artigiano
             </h2>
             <div className="mt-8 flex flex-col gap-5">
               <p className="text-muted-foreground leading-relaxed text-base lg:text-lg">
-                Fondata nel 1990, la <strong className="text-foreground">Mar.Pel SRL</strong> e una delle aziende
-                piu importanti d{"'"}Italia nel settore dell{"'"}import e dell{"'"}export di pellami.
-                Con sede a Tolentino, nelle Marche, operiamo nel cuore di una delle regioni piu
-                vocate alla lavorazione della pelle.
+                La <strong className="text-foreground">Marpell srl</strong>, azienda presente nel cuore del territorio
+                Toscano, &egrave; stata fondata da pochissimi anni, ma velocemente &egrave; riuscita ad imporsi sul
+                mercato grazie all{"'"}alta qualit&agrave; professionale, all{"'"}attenzione che ha sempre mostrato nella
+                lavorazione delle pelli, alla capacit&agrave; di adattamento e continuo sviluppo tecnologico.
               </p>
               <p className="text-muted-foreground leading-relaxed text-base lg:text-lg">
-                Ci avvaliamo di collaboratori e consulenti qualificati per reperire le migliori
-                qualita di materie grezze ai migliori prezzi di mercato. La nostra trentennale
-                esperienza ci permette di offrire uno dei migliori rapporti qualita-prezzo
-                del mercato mondiale.
+                La ricerca e l{"'"}innovazione, unite alla conoscenza di tecniche tradizionali delle varie
+                lavorazioni, consentono alla Marpell srl di offrire al cliente l{"'"}eccellenza della manifattura
+                e l{"'"}originalit&agrave;. La filosofia aziendale resta quella di migliorare sempre tutto
+                ci&ograve; che viene creato.
               </p>
               <p className="text-muted-foreground leading-relaxed text-base lg:text-lg">
-                Serviamo grandi marchi e piccoli artigiani con la stessa dedizione,
-                perche crediamo che il <strong className="text-foreground">Made in Italy</strong> si
-                costruisca con la qualita delle materie prime.
+                In un mercato sempre pi&ugrave; veloce e aggressivo, la capacit&agrave; di essere immediatamente
+                reattivi diventa il fattore di competitivit&agrave;. <strong className="text-foreground">Marpell srl</strong> collabora
+                con i clienti in maniera propositiva e personalizzata, mettendo a loro disposizione i propri ambienti.
               </p>
             </div>
-            <div className="mt-10 flex items-center gap-6">
-              <div className="h-px w-16 bg-primary" />
-              <span className="text-primary font-serif text-lg italic">
-                {"\""}Ottimo rapporto qualita-prezzo dal 1990{"\""}
-              </span>
+
+            {/* Pillars */}
+            <div className="mt-10 grid grid-cols-2 gap-4">
+              {[
+                "Ricerca Tecnologica",
+                "Stile Italiano",
+                "Controllo della Qualit\u00e0",
+                "Sapere Artigiano",
+              ].map((pillar) => (
+                <div key={pillar} className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full shrink-0" />
+                  <span className="text-foreground font-medium text-sm">{pillar}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -84,14 +93,14 @@ export default function About() {
             <div className="relative">
               <img
                 src="/images/about-workshop.jpg"
-                alt="Laboratorio pellami Mar.Pel SRL a Tolentino"
+                alt="Laboratorio Marpell SRL - Stampa digitale su pelle"
                 className="w-full h-[500px] lg:h-[600px] object-cover rounded-sm"
               />
-              {/* Experience Badge */}
+              {/* Badge */}
               <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-sm shadow-xl">
-                <span className="font-serif text-4xl font-bold block">30+</span>
+                <span className="font-serif text-xl font-bold block">Made in</span>
                 <span className="text-xs uppercase tracking-[0.2em] text-primary-foreground/80">
-                  Anni di<br />Esperienza
+                  Toscana<br />Italia
                 </span>
               </div>
             </div>

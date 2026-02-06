@@ -31,10 +31,10 @@ function AnimatedNumber({ target, suffix = "", inView }) {
 }
 
 const stats = [
-  { number: 30, suffix: "+", label: "Anni di Esperienza" },
-  { number: 4, suffix: "", label: "Tipologie di Pellami" },
-  { number: 500, suffix: "+", label: "Clienti Serviti" },
-  { number: 20, suffix: "+", label: "Paesi Raggiunti" },
+  { number: 4, suffix: "", label: "Settori Serviti" },
+  { number: 100, suffix: "%", label: "Inchiostri Ecologici" },
+  { number: 50, suffix: "+", label: "Collezioni Realizzate" },
+  { number: 1000, suffix: "+", label: "Clienti Soddisfatti" },
 ]
 
 export default function Stats() {

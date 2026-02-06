@@ -1,11 +1,11 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Mar.Pel SRL - Import Export Pellami | Dal 1990 a Tolentino",
+  title: "Marpell SRL - Stampa Digitale su Pelle | Castelfranco di Sotto, Toscana",
   description:
-    "Mar.Pel SRL - Leader in Italia nell'import e export di pellami pregiati. Oltre 30 anni di esperienza nella compravendita di pelli bovine, ovine, caprine e suine. Tolentino, Marche.",
+    "Marpell SRL - Eccellenza nella stampa digitale su pelle e lavorazione pellami. Stile italiano, ricerca tecnologica e sapere artigiano nel cuore della Toscana.",
   keywords:
-    "pellami, pelle, import, export, stock pelli, calzature, Made in Italy, Tolentino, Marche",
+    "stampa digitale pelle, pellami stampati, cinture pelle, pelletteria, calzature, Made in Italy, Toscana, Castelfranco di Sotto",
 };
 
 export const viewport = {
