@@ -45,7 +45,7 @@ export default function Contact() {
             Parliamo del vostro progetto
           </h2>
           <p className="mt-6 text-muted-foreground text-base lg:text-lg leading-relaxed">
-            Contattateci per ricevere il catalogo prodotti, campionature o un preventivo personalizzato.
+            Contattateci per campionature, prototipi, mood board o un preventivo personalizzato.
           </p>
         </div>
 
@@ -63,8 +63,9 @@ export default function Contact() {
               <div>
                 <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-wider mb-1">Sede</h4>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Tolentino (MC)<br />
-                  62029 - Marche, Italia
+                  Via dell{"'"}Acero, 17<br />
+                  56022 Castelfranco di Sotto (PI)<br />
+                  Toscana, Italia
                 </p>
               </div>
             </div>
@@ -75,8 +76,8 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-wider mb-1">Telefono</h4>
-                <a href="tel:+390733961533" className="text-muted-foreground text-sm hover:text-primary transition-colors">
-                  +39 0733 961533
+                <a href="tel:+39057147567" className="text-muted-foreground text-sm hover:text-primary transition-colors">
+                  (+39) 0571.47567
                 </a>
               </div>
             </div>
@@ -87,8 +88,8 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-wider mb-1">Email</h4>
-                <a href="mailto:info@marpelsrl.it" className="text-muted-foreground text-sm hover:text-primary transition-colors">
-                  info@marpelsrl.it
+                <a href="mailto:info@marpellsrl.it" className="text-muted-foreground text-sm hover:text-primary transition-colors">
+                  info@marpellsrl.it
                 </a>
               </div>
             </div>
@@ -109,8 +110,8 @@ export default function Contact() {
             {/* Map */}
             <div className="mt-4 bg-secondary rounded-sm overflow-hidden h-48 lg:h-64">
               <iframe
-                title="Mar.Pel SRL Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.5!2d13.28!3d43.21!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sTolentino%2C+MC!5e0!3m2!1sit!2sit!4v1000000000000"
+                title="Marpell SRL - Castelfranco di Sotto"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2878.8!2d10.74!3d43.68!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCastelfranco+di+Sotto!5e0!3m2!1sit!2sit!4v1000000000000"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -189,10 +190,10 @@ export default function Contact() {
                   className="px-4 py-3 bg-background border border-border rounded-sm text-sm text-foreground focus:outline-none focus:border-primary transition-colors"
                 >
                   <option value="">Seleziona un servizio</option>
-                  <option value="import">Import Pellami</option>
-                  <option value="export">Export Pellami</option>
-                  <option value="stock">Vendita Stock Pelli</option>
-                  <option value="calzature">Pellami per Calzature</option>
+                  <option value="stampa">Stampa Digitale su Pelle</option>
+                  <option value="campionature">Campionature e Prototipi</option>
+                  <option value="cinture">Cinture in Pelle</option>
+                  <option value="design">Stile e Progettazione</option>
                   <option value="catalogo">Richiesta Catalogo</option>
                   <option value="altro">Altro</option>
                 </select>

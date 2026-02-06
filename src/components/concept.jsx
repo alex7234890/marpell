@@ -1,40 +1,40 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowUpRight, Globe, Ship, Package, Scissors } from "lucide-react"
+import { ArrowUpRight, Palette, Printer, Lightbulb, Leaf } from "lucide-react"
 
-const services = [
+const conceptItems = [
   {
-    icon: Ship,
-    title: "Import Pellami",
+    icon: Palette,
+    title: "Stile e Progettazione",
     description:
-      "Importiamo pellami di ogni tipo da tutti i paesi produttori. Materie prime bovine, ovine, caprine e suine selezionate dai migliori mercati mondiali.",
-    details: ["Pellami bovini", "Pellami ovini", "Pellami caprini", "Pellami suini"],
+      "L'eccellente settore interno di stile e di progettazione riunisce esperti creativi e capaci di anticipare ed interpretare le tendenze, realizzando collezioni prestigiose presentate attraverso mood board.",
+    details: ["Mood board", "Tendenze moda", "Collezioni esclusive", "Design creativo"],
   },
   {
-    icon: Globe,
-    title: "Export Pellami",
+    icon: Lightbulb,
+    title: "Campionature e Prototipi",
     description:
-      "Esportiamo i migliori pellami italiani verso la Spagna e altri paesi. La qualita Made in Italy riconosciuta a livello internazionale.",
-    details: ["Mercato europeo", "Qualita certificata", "Spedizioni internazionali", "Supporto doganale"],
+      "Alla Marpell srl piace pensare che una buona idea possa sempre diventare una buona realt\u00e0, interpretando i vari progetti, realizzando campionature e prototipi, dando vita ad articoli esclusivi.",
+    details: ["Prototipi su misura", "Campionature rapide", "Articoli esclusivi", "Personalizzazione"],
   },
   {
-    icon: Package,
-    title: "Vendita Stock Pelli",
+    icon: Printer,
+    title: "Stampa Digitale su Pelle",
     description:
-      "Offriamo pacchetti diversificati di pellami a stock con un ottimo rapporto qualita-prezzo. Prodotti diversificati, non di serie B.",
-    details: ["Pelli a stock", "Lotti misti", "Prezzi competitivi", "Alta resa garantita"],
+      "Vengono stampate pelli rigorosamente in crust, con tipologie lisce, scamosciate e rettili, con fedeli riproduzioni dei colori e delle tonalit\u00e0. Sia piccole tirature che lavorazioni in serie.",
+    details: ["Pelli crust", "Lisce e scamosciate", "Effetto rettile", "Piccole e grandi tirature"],
   },
   {
-    icon: Scissors,
-    title: "Pellami per Calzature",
+    icon: Leaf,
+    title: "Approccio Ecologico",
     description:
-      "Specializzati nella fornitura di pellami per l'industria calzaturiera. Serviamo grandi marchi e piccoli artigiani con la stessa dedizione.",
-    details: ["Pellami pregiati", "Semilavorati", "Campionature", "Prodotti su misura"],
+      "L'azienda ha sposato il concetto dell'ecologico utilizzando macchinari con inchiostri all'acqua, versatili e adatti per l'industria della pelletteria, calzatura, arredamento ed abbigliamento.",
+    details: ["Inchiostri ad acqua", "Pelletteria", "Calzatura", "Arredamento"],
   },
 ]
 
-export default function Services() {
+export default function Concept() {
   const ref = useRef(null)
   const [inView, setInView] = useState(false)
 
@@ -53,31 +53,32 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="servizi" ref={ref} className="py-24 lg:py-32 bg-background">
+    <section id="concept" ref={ref} className="py-24 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl">
           <div className="flex items-center gap-4 mb-6">
             <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-sans font-medium">
-              I Nostri Servizi
+              Concept
             </span>
             <div className="h-px flex-1 bg-border" />
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight text-balance">
-            Un{"'"}offerta completa per il mondo dei pellami
+            Dall{"'"}idea alla realt&agrave;, con eccellenza e innovazione
           </h2>
           <p className="mt-6 text-muted-foreground text-base lg:text-lg leading-relaxed">
-            Dalla materia grezza al semilavorato, dalla piccola pelletteria alla grande industria calzaturiera.
+            L{"'"}appartenenza al settore della moda impone a Marpell srl una particolare attenzione alle
+            nuove tendenze, mescolate sapientemente con esperienza, tradizione e tecnica.
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Concept Grid */}
         <div className="mt-16 grid md:grid-cols-2 gap-6 lg:gap-8">
-          {services.map((service, i) => {
-            const Icon = service.icon
+          {conceptItems.map((item, i) => {
+            const Icon = item.icon
             return (
               <div
-                key={service.title}
+                key={item.title}
                 className={`group relative bg-card border border-border rounded-sm p-8 lg:p-10 hover:border-primary/40 hover:shadow-lg transition-all duration-500 ${
                   inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
@@ -95,15 +96,15 @@ export default function Services() {
 
                 {/* Content */}
                 <h3 className="font-serif text-xl lg:text-2xl font-bold text-foreground mb-4">
-                  {service.title}
+                  {item.title}
                 </h3>
                 <p className="text-muted-foreground text-sm lg:text-base leading-relaxed mb-6">
-                  {service.description}
+                  {item.description}
                 </p>
 
                 {/* Details */}
                 <div className="flex flex-wrap gap-2">
-                  {service.details.map((detail) => (
+                  {item.details.map((detail) => (
                     <span
                       key={detail}
                       className="text-xs uppercase tracking-wider text-muted-foreground bg-secondary px-3 py-1.5 rounded-sm"
