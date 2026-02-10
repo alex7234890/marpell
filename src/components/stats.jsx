@@ -1,34 +1,8 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-
-function AnimatedNumber({ target, suffix = "", inView }) {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    if (!inView) return
-    let start = 0
-    const duration = 2000
-    const increment = target / (duration / 16)
-    const timer = setInterval(() => {
-      start += increment
-      if (start >= target) {
-        setCount(target)
-        clearInterval(timer)
-      } else {
-        setCount(Math.floor(start))
-      }
-    }, 16)
-    return () => clearInterval(timer)
-  }, [inView, target])
-
-  return (
-    <span>
-      {count}
-      {suffix}
-    </span>
-  )
-}
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import CountUp from "react-countup"
 
 const stats = [
   { number: 4, suffix: "", label: "Settori Serviti" },
@@ -38,43 +12,42 @@ const stats = [
 ]
 
 export default function Stats() {
-  const ref = useRef(null)
-  const [inView, setInView] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.3 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
+  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true })
 
   return (
     <section ref={ref} className="py-20 bg-hero text-hero-foreground">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {stats.map((stat, i) => (
-            <div
+            <motion.div
               key={stat.label}
-              className={`text-center transition-all duration-700 ${
-                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${i * 150}ms` }}
+              className="text-center"
+              initial={{ opacity: 0, y: 40, scale: 0.9 }}
+              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
             >
               <span className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-primary">
-                <AnimatedNumber target={stat.number} suffix={stat.suffix} inView={inView} />
+                {inView ? (
+                  <CountUp
+                    end={stat.number}
+                    duration={2.5}
+                    separator="."
+                    suffix={stat.suffix}
+                  />
+                ) : (
+                  <>0{stat.suffix}</>
+                )}
               </span>
-              <div className="mt-3 h-px w-12 bg-hero-foreground/20 mx-auto" />
+              <motion.div
+                className="mt-3 h-px bg-hero-foreground/20 mx-auto"
+                initial={{ width: 0 }}
+                animate={inView ? { width: 48 } : {}}
+                transition={{ duration: 0.8, delay: 0.3 + i * 0.15 }}
+              />
               <p className="mt-3 text-hero-foreground/70 text-xs sm:text-sm uppercase tracking-[0.15em] font-sans">
                 {stat.label}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

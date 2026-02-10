@@ -8,6 +8,7 @@ import Gallery from "@/components/gallery";
 import CtaBanner from "@/components/cta-banner";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
+import WhatsAppButton from "@/components/whatsapp-button";
 
 export default function Page() {
   return (
@@ -22,6 +23,7 @@ export default function Page() {
       <CtaBanner />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 }
