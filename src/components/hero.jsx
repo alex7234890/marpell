@@ -1,88 +1,136 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { ArrowDown, MapPin } from "lucide-react"
 
 export default function Hero() {
-  const heroRef = useRef(null)
-
-  useEffect(() => {
-    const el = heroRef.current
-    if (el) {
-      el.style.opacity = "1"
-    }
-  }, [])
+  const sectionRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  })
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"])
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
   return (
     <section
       id="home"
-      ref={heroRef}
+      ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ opacity: 0, transition: "opacity 1s ease-out" }}
     >
-      {/* Background Image */}
-      <div className="absolute inset-0">
+      {/* Parallax Background Image */}
+      <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <img
           src="/images/hero-leather.jpg"
           alt="Stampa digitale su pelle - Marpell SRL"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-110"
         />
         <div className="absolute inset-0 bg-hero/70" />
-      </div>
+      </motion.div>
 
       {/* Decorative Line */}
-      <div className="absolute top-0 left-1/2 w-px h-24 bg-hero-foreground/20 -translate-x-1/2" />
+      <motion.div
+        className="absolute top-0 left-1/2 w-px bg-hero-foreground/20 -translate-x-1/2"
+        initial={{ height: 0 }}
+        animate={{ height: 96 }}
+        transition={{ duration: 1.2, delay: 0.2 }}
+      />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <motion.div
+        className="relative z-10 max-w-5xl mx-auto px-6 text-center"
+        style={{ y: contentY, opacity }}
+      >
         {/* Tagline */}
-        <div className="flex items-center justify-center gap-3 mb-8 animate-fade-in" style={{ animationDelay: "0.3s", animationFillMode: "both" }}>
-          <div className="h-px w-12 bg-primary" />
+        <motion.div
+          className="flex items-center justify-center gap-3 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
+          <motion.div
+            className="h-px bg-primary"
+            initial={{ width: 0 }}
+            animate={{ width: 48 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          />
           <span className="text-primary font-sans text-xs uppercase tracking-[0.35em] font-medium">
             Castelfranco di Sotto, Toscana
           </span>
-          <div className="h-px w-12 bg-primary" />
-        </div>
+          <motion.div
+            className="h-px bg-primary"
+            initial={{ width: 0 }}
+            animate={{ width: 48 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          />
+        </motion.div>
 
         {/* Main Heading */}
-        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-hero-foreground leading-[1.05] tracking-tight text-balance animate-fade-in-up" style={{ animationDelay: "0.5s", animationFillMode: "both" }}>
+        <motion.h1
+          className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-hero-foreground leading-[1.05] tracking-tight text-balance"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.5 }}
+        >
           Stampa digitale su pelle, eccellenza toscana
-        </h1>
+        </motion.h1>
 
         {/* Subtitle */}
-        <p className="mt-8 text-hero-foreground/75 font-sans text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.8s", animationFillMode: "both" }}>
+        <motion.p
+          className="mt-8 text-hero-foreground/75 font-sans text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
           Ricerca tecnologica, stile italiano e sapere artigiano.
           Dalla pelle crust al prodotto finito, con inchiostri ecologici ad acqua.
-        </p>
+        </motion.p>
 
         {/* CTA Buttons */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "1.1s", animationFillMode: "both" }}>
+        <motion.div
+          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+        >
           <a
             href="#concept"
-            className="px-8 py-4 bg-primary text-primary-foreground font-sans text-sm uppercase tracking-[0.15em] font-medium rounded-sm hover:bg-primary/90 transition-all duration-300"
+            className="px-8 py-4 bg-primary text-primary-foreground font-sans text-sm uppercase tracking-[0.15em] font-medium rounded-sm hover:bg-primary/90 hover:scale-105 transition-all duration-300"
           >
             Scopri il Nostro Concept
           </a>
           <a
             href="#contatti"
-            className="px-8 py-4 border border-hero-foreground/30 text-hero-foreground font-sans text-sm uppercase tracking-[0.15em] font-medium rounded-sm hover:bg-hero-foreground/10 transition-all duration-300"
+            className="px-8 py-4 border border-hero-foreground/30 text-hero-foreground font-sans text-sm uppercase tracking-[0.15em] font-medium rounded-sm hover:bg-hero-foreground/10 hover:scale-105 transition-all duration-300"
           >
             Contattaci
           </a>
-        </div>
+        </motion.div>
 
         {/* Location Badge */}
-        <div className="mt-16 flex items-center justify-center gap-2 text-hero-foreground/50 text-xs uppercase tracking-[0.2em] animate-fade-in" style={{ animationDelay: "1.4s", animationFillMode: "both" }}>
+        <motion.div
+          className="mt-16 flex items-center justify-center gap-2 text-hero-foreground/50 text-xs uppercase tracking-[0.2em]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.4 }}
+        >
           <MapPin className="w-3.5 h-3.5" />
           Castelfranco di Sotto (PI) - Toscana, Italia
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in" style={{ animationDelay: "1.6s", animationFillMode: "both" }}>
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.6 }}
+      >
         <span className="text-hero-foreground/40 text-[10px] uppercase tracking-[0.3em]">Scorri</span>
         <ArrowDown className="w-4 h-4 text-hero-foreground/40 animate-bounce" />
-      </div>
+      </motion.div>
     </section>
   )
 }
